@@ -5,5 +5,9 @@ if [ ! -d "$HOME/.ssh" ]; then
     chmod 700 "$HOME/.ssh"
 fi
 
-cd $HOME/.ssh
-ssh-keygen -t rsa -b 2048 -f "$HOME/.ssh/id_rsa" -N "" <<< $'\n\n\n'
+if [ ! -f "$HOME/.ssh/id_rsa" ]; then
+    ssh-keygen -t rsa -b 2048 -f "$HOME/.ssh/id_rsa" -N ""
+    echo "SSH key has been generated at $HOME/.ssh/id_rsa"
+else
+    echo "SSH key already exists at $HOME/.ssh/id_rsa"
+fi

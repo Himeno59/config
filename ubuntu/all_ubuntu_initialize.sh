@@ -1,35 +1,39 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt upgrade
+sudo apt upgrade -y
 
 ## initialize setup ##
 script_path="$HOME/config/ubuntu/scripts"
 
 # install default package
 if [ -f "$script_path/default_package.sh" ]; then
-    source $script_path/default_package.sh
+    bash "$script_path/default_package.sh"
 fi
 
 # install google chrome
 if [ -f "$script_path/google-chrome.sh" ]; then
-    source $script_path/google-chrome.sh
+    bash "$script_path/google-chrome.sh"
 fi
 
 # genarate ssh-key
 if [ -f "$script_path/ssh_key_gen.sh" ]; then
-    source $script_path/ssh_key_gen.sh
+    bash "$script_path/ssh_key_gen.sh"
 fi
 
 # disable beep sound
 if [ -f "$script_path/disable_beep.sh" ]; then
-    source $script_path/disable_beep.sh
+    bash "$script_path/disable_beep.sh"
 fi
 
 ## setting .bashrc ##
 bashrc_path="$HOME/.bashrc"
 config_path="$HOME/config/ubuntu/bash_config"
-cp $HOME/.bashrc $HOME/.bashrc_origin
+
+if [ ! -f "$HOME/.bashrc_origin" ]; then
+    cp "$HOME/.bashrc" "$HOME/.bashrc_origin"
+fi
+
 echo -e "\n### import bashrc_config ###" >> "$bashrc_path"
 
 # default setting
@@ -47,4 +51,4 @@ if [ -f "$config_path/git_branch.bashrc_config" ]; then
     echo "source $config_path/git_branch.bashrc_config" >> "$bashrc_path" 
 fi
 
-source $HOME/.bashrc
+exec bash
