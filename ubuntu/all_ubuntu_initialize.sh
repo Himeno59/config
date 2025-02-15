@@ -8,7 +8,7 @@ script_path="$HOME/config/ubuntu/scripts"
 
 # install default package
 if [ -f "$script_path/default_package.sh" ]; then
-    source $scritp_path/default_package.sh
+    source $script_path/default_package.sh
 fi
 
 # install google chrome
