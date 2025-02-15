@@ -17,12 +17,12 @@ if [ -f "$script_path/google-chrome.sh" ]; then
 fi
 
 # genarate ssh-key
-if [ -f "$script_path/ssh_key_gen.sh"]; then
+if [ -f "$script_path/ssh_key_gen.sh" ]; then
     source $script_path/ssh_key_gen.sh
 fi
 
 # disable beep sound
-if [ -f "$script_path/disable_beep.sh"]; then
+if [ -f "$script_path/disable_beep.sh" ]; then
     source $script_path/disable_beep.sh
 fi
 
