@@ -42,4 +42,9 @@ if [ -f "$config_path/dbus.bashrc_config" ]; then
     echo "source $config_path/dbus.bashrc_config" >> "$bashrc_path" 
 fi
 
+# show git branch
+if [ -f "$config_path/git_branch.bashrc_config" ]; then
+    echo "source $config_path/git_branch.bashrc_config" >> "$bashrc_path" 
+fi
+
 source $HOME/.bashrc
