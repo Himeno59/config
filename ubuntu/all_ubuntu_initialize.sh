@@ -26,6 +26,11 @@ if [ -f "$script_path/disable_beep.sh" ]; then
     bash "$script_path/disable_beep.sh"
 fi
 
+## emacs setup ##
+if [ -f "script_path/../emacs/setup_emacs_symlink.sh" ]; then
+    bash "script_path/../emacs/setup_emacs_symlink.sh"
+fi
+
 ## setting .bashrc ##
 bashrc_path="$HOME/.bashrc"
 config_path="$HOME/config/ubuntu/bash_config"
